@@ -36,7 +36,8 @@ class ArgumentsWildcard
                 $argument = new Token\ExactValueToken($argument);
             }
 
-            $this->tokens[] = $argument;
+            // Serialize and unserialize argument to break references
+            $this->tokens[] = unserialize(serialize($argument));
         }
     }
 
